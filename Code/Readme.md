@@ -1,42 +1,40 @@
-# 📇 Contact Form With Input Validation
+# 📊 Periodic Table with Hover Info and Filter by Properties
 
 ## 📝 Description
-This project is a responsive contact form with input validation to ensure users provide valid information before submission. It includes a landing page and a contact page with visually appealing design and smooth animations.
-I made this project for <b>CodeCircuit Hackathon 2025</b>  
+This project is an interactive periodic table web application that provides detailed information about each element on hover and allows filtering elements based on their properties. It is designed to be visually appealing and user-friendly, making it easy to explore the periodic table and learn about the elements.
 
 ## ✨ Features
-- ✅ Responsive design for all device sizes
-- 🛡️ Input validation for name, email, phone, and message fields
-- 🎨 Modern UI with animations and hover effects
-- 📸 Image assets for enhanced visual appeal
-- 🔗 Integration with jQuery and Bootstrap for functionality and styling
+- 🔍 Hover over elements to see detailed information
+- ⚙️ Filter elements by various properties (e.g., metal, non-metal, state)
+- 📱 Responsive design for optimal viewing on all devices
+- 🎨 Modern UI with animations and smooth interactions
+- 🛠️ Utilizes Bootstrap and jQuery for enhanced functionality and styling
 
 ## 🛠️ Technologies Used
 - HTML5 & CSS3
 - JavaScript & jQuery
 - Bootstrap 5
+- AOS (Animate On Scroll) library for animations
 - Font Awesome for icons
-- AOS (Animate On Scroll) library
 
 ## 📁 Project Structure
 ```
 Code/
-├── Assests/                📂 Image assets for landing and contact pages
+├── Assests/                📂 Image assets used in the project
 │   └── Images/
-│       ├── ContactPageImages/
-│       └── LandingPageImages/
-├── Script/                 📂 JavaScript files including jQuery and Bootstrap
+├── Script/                 📂 JavaScript files including jQuery, Bootstrap, and custom scripts
 │   ├── jquery/
 │   └── js/
 ├── Styling/                📂 CSS files including Bootstrap and custom styles
 │   └── css/
-└── Structure/              📂 HTML files for landing and contact pages
+└── Structure/              📂 HTML files, including the main periodic table page
+    └── PeriodicPage.html
 ```
 
 ## 🚀 How to Run
-1. Open `Code/Structure/LandingPage.html` in any modern web browser.
+1. Open `Structure/PeriodicPage.html` in any modern web browser.
 2. Ensure the `Assests`, `Script`, and `Styling` folders are in the same directory level as the HTML files for proper loading of assets.
-3. Fill out the contact form and test input validation.
+3. Interact with the periodic table by hovering over elements and using the filter options.
 
 ## 📬 Author
 Khushman Singh Kalsi (📧 khushmankalsi.code@gmail.com)
