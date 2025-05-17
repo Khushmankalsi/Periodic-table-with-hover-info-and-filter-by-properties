@@ -1,41 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styling/css/bootstrap.css">
-    <link rel="stylesheet" href="../Styling/css/bootstrap-grid.css.map">
-    <link rel="stylesheet" href="../Styling/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../Styling/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="../Styling/css/PeriodicPageStyle.css">
-    <title>Periodic table with hover info and filter by properties.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Periodic Table</title>
+  <link rel="stylesheet" href="../Styling/css/PeriodicPageStyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-
-  <div class="container py-4">
-    <h2 class="text-center mb-4">Periodic Table of the Elements</h2>
+<body>
+  <div class="container-fluid">
+    <h1 class="mb-4 PeriodicTableHead ">Periodic Table of Elements</h1>
     
-    <div class="row row-cols-18 gx-1 gy-1 justify-content-center">
-
-      <!-- Hydrogen -->
-      <div class="col element non-metal">H<br><small>1</small></div>
-
-      <!-- Spacer -->
-      <div class="col-10"></div>
-
-      <!-- Helium -->
-      <div class="col element noble-gas">He<br><small>2</small></div>
-
-      <!-- Second Row -->
-      <div class="col element alkali-metal">Li<br><small>3</small></div>
-      <div class="col element alkaline-earth">Be<br><small>4</small></div>
-      <div class="col-10"></div>
-      <div class="col element noble-gas">Ne<br><small>10</small></div>
-
-      <!-- Add more elements similarly -->
+    <div class="position-relative">
+      <div class="group-labels mb-2">
+        <div class="group-label GroupTextHeading ">Group ▶</div>
+        <div class="group-label">1</div>
+        <div class="group-label">2</div>
+        <div class="group-label">3</div>
+        <div class="group-label">4</div>
+        <div class="group-label">5</div>
+        <div class="group-label">6</div>
+        <div class="group-label">7</div>
+        <div class="group-label">8</div>
+        <div class="group-label">9</div>
+        <div class="group-label">10</div>
+        <div class="group-label">11</div>
+        <div class="group-label">12</div>
+        <div class="group-label">13</div>
+        <div class="group-label">14</div>
+        <div class="group-label">15</div>
+        <div class="group-label">16</div>
+        <div class="group-label">17</div>
+        <div class="group-label">18</div>
+      </div>
+      
+      <div class="period-labels">
+        <div class="period-label PeriodTextHeading ">Period ▼</div>
+        <div class="period-label">1</div>
+        <div class="period-label">2</div>
+        <div class="period-label">3</div>
+        <div class="period-label">4</div>
+        <div class="period-label">5</div>
+        <div class="period-label">6</div>
+        <div class="period-label">7</div>
+      </div>
+      
+      <div class="section-labels">
+        <div class="section-label" style="top: 60px; left: 110px;">Nonmetals</div>
+        <div class="section-label" style="top: 120px; left: 170px;">Metals</div>
+        <div class="section-label" style="top: 60px; right: 0px;">Noble<br>gases</div>
+        <div class="section-label" style="top: 180px; left: 380px;">Transition metals<br>(sometimes excluding group 12)</div>
+        <div class="section-label" style="top: 180px; right: 200px;">Some elements near<br>the dashed staircase are<br>sometimes called <em>metalloids</em></div>
+      </div>
+      
+      <div class="periodic-table" id="periodicTable"></div>
+      
+      <div class="f-block-labels">
+        <div class="f-block-label">Lanthanides</div>
+        <div class="lanthanides" id="lanthanides"></div>
+      </div>
+      
+      <div class="f-block-labels">
+        <div class="f-block-label">Actinides</div>
+        <div class="actinides" id="actinides"></div>
+      </div>
+      
+      <div class="block-labels">
+        <div>s-block<br>(plus He)</div>
+        <div>f-block</div>
+        <div>d-block</div>
+        <div>p-block (excluding He)</div>
+      </div>
       
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../Script/js/PeriodicPageScript.js"></script>
 </body>
 </html>
