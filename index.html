@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Periodic Table</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    
+    .periodic-table {
+      display: grid;
+      grid-template-columns: repeat(18, 60px);
+      grid-gap: 2px;
+      margin-left: 40px;
+      margin-top: 40px;
+    }
+    
+    .element {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      position: relative;
+      font-weight: bold;
+    }
+    
+    .element .number {
+      display: block;
+      font-size: 14px;
+    }
+    
+    .element .symbol {
+      display: none;
+      font-size: 18px;
+    }
+    
+    .element:hover .number {
+      display: none;
+    }
+    
+    .element:hover .symbol {
+      display: block;
+    }
+    
+    .s-block { background-color: #ffb3b3; }
+    .p-block { background-color: #ffffb3; }
+    .d-block { background-color: #b3d9ff; }
+    .f-block { background-color: #c6ffb3; }
+    
+    .lanthanides, .actinides {
+      display: grid;
+      grid-template-columns: repeat(14, 60px);
+      grid-gap: 2px;
+      margin-top: 20px;
+      margin-left: 120px;
+    }
+    
+    .labels {
+      position: relative;
+    }
+    
+    .group-labels {
+      display: flex;
+      margin-left: 40px;
+    }
+    
+    .group-label {
+      width: 60px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .period-labels {
+      position: absolute;
+      left: 10px;
+      top: 40px;
+    }
+    
+    .period-label {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+    
+    .section-labels {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .section-label {
+      position: absolute;
+      font-size: 14px;
+    }
+    
+    .staircase {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .block-labels {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    
+    .f-block-labels {
+      display: flex;
+      margin-top: 20px;
+    }
+    
+    .f-block-label {
+      width: 100px;
+      text-align: right;
+      padding-right: 10px;
+      line-height: 60px;
+    }
+
+    .PeriodicTableHead{
+        color: rgb(194, 164, 12) !important;
+        font-weight:bolder !important ;
+    }
+
+    .group-label{
+        color: rgb(98, 7, 112) !important ;
+    }
+    .period-label{
+        color: rgb(98, 7, 112) !important ;
+    }
+    
+    .section-label{
+        color: rgb(98, 7, 112) !important ;
+    }
+    .f-block-label{
+        color: rgb(98, 7, 112) !important ;
+    }
+    .block-labels{
+        color: rgb(98, 7, 112) !important ;
+    }
+
+    @media (max-width: 1200px) {
+      .periodic-table, .lanthanides, .actinides {
+        transform: scale(0.8);
+        transform-origin: top left;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .periodic-table, .lanthanides, .actinides {
+        transform: scale(0.6);
+        transform-origin: top left;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .periodic-table, .lanthanides, .actinides {
+        transform: scale(0.4);
+        transform-origin: top left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 class="mb-4 PeriodicTableHead ">Periodic Table of Elements</h1>
+    
+    <div class="position-relative">
+      <div class="group-labels mb-2">
+        <div class="group-label GroupTextHeading ">Group ▶</div>
+        <div class="group-label">1</div>
+        <div class="group-label">2</div>
+        <div class="group-label">3</div>
+        <div class="group-label">4</div>
+        <div class="group-label">5</div>
+        <div class="group-label">6</div>
+        <div class="group-label">7</div>
+        <div class="group-label">8</div>
+        <div class="group-label">9</div>
+        <div class="group-label">10</div>
+        <div class="group-label">11</div>
+        <div class="group-label">12</div>
+        <div class="group-label">13</div>
+        <div class="group-label">14</div>
+        <div class="group-label">15</div>
+        <div class="group-label">16</div>
+        <div class="group-label">17</div>
+        <div class="group-label">18</div>
+      </div>
+      
+      <div class="period-labels">
+        <div class="period-label PeriodTextHeading ">Period ▼</div>
+        <div class="period-label">1</div>
+        <div class="period-label">2</div>
+        <div class="period-label">3</div>
+        <div class="period-label">4</div>
+        <div class="period-label">5</div>
+        <div class="period-label">6</div>
+        <div class="period-label">7</div>
+      </div>
+      
+      <div class="section-labels">
+        <div class="section-label" style="top: 60px; left: 110px;">Nonmetals</div>
+        <div class="section-label" style="top: 120px; left: 170px;">Metals</div>
+        <div class="section-label" style="top: 60px; right: 0px;">Noble<br>gases</div>
+        <div class="section-label" style="top: 180px; left: 380px;">Transition metals<br>(sometimes excluding group 12)</div>
+        <div class="section-label" style="top: 180px; right: 200px;">Some elements near<br>the dashed staircase are<br>sometimes called <em>metalloids</em></div>
+      </div>
+      
+      <div class="periodic-table" id="periodicTable"></div>
+      
+      <div class="f-block-labels">
+        <div class="f-block-label">Lanthanides</div>
+        <div class="lanthanides" id="lanthanides"></div>
+      </div>
+      
+      <div class="f-block-labels">
+        <div class="f-block-label">Actinides</div>
+        <div class="actinides" id="actinides"></div>
+      </div>
+      
+      <div class="block-labels">
+        <div>s-block<br>(plus He)</div>
+        <div>f-block</div>
+        <div>d-block</div>
+        <div>p-block (excluding He)</div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const elements = [
+      { number: 1, symbol: "H", group: 1, period: 1, block: "s-block" },
+      { number: 2, symbol: "He", group: 18, period: 1, block: "s-block" },
+      
+      { number: 3, symbol: "Li", group: 1, period: 2, block: "s-block" },
+      { number: 4, symbol: "Be", group: 2, period: 2, block: "s-block" },
+      { number: 5, symbol: "B", group: 13, period: 2, block: "p-block" },
+      { number: 6, symbol: "C", group: 14, period: 2, block: "p-block" },
+      { number: 7, symbol: "N", group: 15, period: 2, block: "p-block" },
+      { number: 8, symbol: "O", group: 16, period: 2, block: "p-block" },
+      { number: 9, symbol: "F", group: 17, period: 2, block: "p-block" },
+      { number: 10, symbol: "Ne", group: 18, period: 2, block: "p-block" },
+      
+      { number: 11, symbol: "Na", group: 1, period: 3, block: "s-block" },
+      { number: 12, symbol: "Mg", group: 2, period: 3, block: "s-block" },
+      { number: 13, symbol: "Al", group: 13, period: 3, block: "p-block" },
+      { number: 14, symbol: "Si", group: 14, period: 3, block: "p-block" },
+      { number: 15, symbol: "P", group: 15, period: 3, block: "p-block" },
+      { number: 16, symbol: "S", group: 16, period: 3, block: "p-block" },
+      { number: 17, symbol: "Cl", group: 17, period: 3, block: "p-block" },
+      { number: 18, symbol: "Ar", group: 18, period: 3, block: "p-block" },
+      
+      { number: 19, symbol: "K", group: 1, period: 4, block: "s-block" },
+      { number: 20, symbol: "Ca", group: 2, period: 4, block: "s-block" },
+      { number: 21, symbol: "Sc", group: 3, period: 4, block: "d-block" },
+      { number: 22, symbol: "Ti", group: 4, period: 4, block: "d-block" },
+      { number: 23, symbol: "V", group: 5, period: 4, block: "d-block" },
+      { number: 24, symbol: "Cr", group: 6, period: 4, block: "d-block" },
+      { number: 25, symbol: "Mn", group: 7, period: 4, block: "d-block" },
+      { number: 26, symbol: "Fe", group: 8, period: 4, block: "d-block" },
+      { number: 27, symbol: "Co", group: 9, period: 4, block: "d-block" },
+      { number: 28, symbol: "Ni", group: 10, period: 4, block: "d-block" },
+      { number: 29, symbol: "Cu", group: 11, period: 4, block: "d-block" },
+      { number: 30, symbol: "Zn", group: 12, period: 4, block: "d-block" },
+      { number: 31, symbol: "Ga", group: 13, period: 4, block: "p-block" },
+      { number: 32, symbol: "Ge", group: 14, period: 4, block: "p-block" },
+      { number: 33, symbol: "As", group: 15, period: 4, block: "p-block" },
+      { number: 34, symbol: "Se", group: 16, period: 4, block: "p-block" },
+      { number: 35, symbol: "Br", group: 17, period: 4, block: "p-block" },
+      { number: 36, symbol: "Kr", group: 18, period: 4, block: "p-block" },
+      
+      { number: 37, symbol: "Rb", group: 1, period: 5, block: "s-block" },
+      { number: 38, symbol: "Sr", group: 2, period: 5, block: "s-block" },
+      { number: 39, symbol: "Y", group: 3, period: 5, block: "d-block" },
+      { number: 40, symbol: "Zr", group: 4, period: 5, block: "d-block" },
+      { number: 41, symbol: "Nb", group: 5, period: 5, block: "d-block" },
+      { number: 42, symbol: "Mo", group: 6, period: 5, block: "d-block" },
+      { number: 43, symbol: "Tc", group: 7, period: 5, block: "d-block" },
+      { number: 44, symbol: "Ru", group: 8, period: 5, block: "d-block" },
+      { number: 45, symbol: "Rh", group: 9, period: 5, block: "d-block" },
+      { number: 46, symbol: "Pd", group: 10, period: 5, block: "d-block" },
+      { number: 47, symbol: "Ag", group: 11, period: 5, block: "d-block" },
+      { number: 48, symbol: "Cd", group: 12, period: 5, block: "d-block" },
+      { number: 49, symbol: "In", group: 13, period: 5, block: "p-block" },
+      { number: 50, symbol: "Sn", group: 14, period: 5, block: "p-block" },
+      { number: 51, symbol: "Sb", group: 15, period: 5, block: "p-block" },
+      { number: 52, symbol: "Te", group: 16, period: 5, block: "p-block" },
+      { number: 53, symbol: "I", group: 17, period: 5, block: "p-block" },
+      { number: 54, symbol: "Xe", group: 18, period: 5, block: "p-block" },
+      
+      { number: 55, symbol: "Cs", group: 1, period: 6, block: "s-block" },
+      { number: 56, symbol: "Ba", group: 2, period: 6, block: "s-block" },
+      { number: 71, symbol: "Lu", group: 3, period: 6, block: "d-block" },
+      { number: 72, symbol: "Hf", group: 4, period: 6, block: "d-block" },
+      { number: 73, symbol: "Ta", group: 5, period: 6, block: "d-block" },
+      { number: 74, symbol: "W", group: 6, period: 6, block: "d-block" },
+      { number: 75, symbol: "Re", group: 7, period: 6, block: "d-block" },
+      { number: 76, symbol: "Os", group: 8, period: 6, block: "d-block" },
+      { number: 77, symbol: "Ir", group: 9, period: 6, block: "d-block" },
+      { number: 78, symbol: "Pt", group: 10, period: 6, block: "d-block" },
+      { number: 79, symbol: "Au", group: 11, period: 6, block: "d-block" },
+      { number: 80, symbol: "Hg", group: 12, period: 6, block: "d-block" },
+      { number: 81, symbol: "Tl", group: 13, period: 6, block: "p-block" },
+      { number: 82, symbol: "Pb", group: 14, period: 6, block: "p-block" },
+      { number: 83, symbol: "Bi", group: 15, period: 6, block: "p-block" },
+      { number: 84, symbol: "Po", group: 16, period: 6, block: "p-block" },
+      { number: 85, symbol: "At", group: 17, period: 6, block: "p-block" },
+      { number: 86, symbol: "Rn", group: 18, period: 6, block: "p-block" },
+      
+      { number: 87, symbol: "Fr", group: 1, period: 7, block: "s-block" },
+      { number: 88, symbol: "Ra", group: 2, period: 7, block: "s-block" },
+      { number: 103, symbol: "Lr", group: 3, period: 7, block: "d-block" },
+      { number: 104, symbol: "Rf", group: 4, period: 7, block: "d-block" },
+      { number: 105, symbol: "Db", group: 5, period: 7, block: "d-block" },
+      { number: 106, symbol: "Sg", group: 6, period: 7, block: "d-block" },
+      { number: 107, symbol: "Bh", group: 7, period: 7, block: "d-block" },
+      { number: 108, symbol: "Hs", group: 8, period: 7, block: "d-block" },
+      { number: 109, symbol: "Mt", group: 9, period: 7, block: "d-block" },
+      { number: 110, symbol: "Ds", group: 10, period: 7, block: "d-block" },
+      { number: 111, symbol: "Rg", group: 11, period: 7, block: "d-block" },
+      { number: 112, symbol: "Cn", group: 12, period: 7, block: "d-block" },
+      { number: 113, symbol: "Nh", group: 13, period: 7, block: "p-block" },
+      { number: 114, symbol: "Fl", group: 14, period: 7, block: "p-block" },
+      { number: 115, symbol: "Mc", group: 15, period: 7, block: "p-block" },
+      { number: 116, symbol: "Lv", group: 16, period: 7, block: "p-block" },
+      { number: 117, symbol: "Ts", group: 17, period: 7, block: "p-block" },
+      { number: 118, symbol: "Og", group: 18, period: 7, block: "p-block" },
+    ];
+    
+    const lanthanides = [
+      { number: 57, symbol: "La", block: "f-block" },
+      { number: 58, symbol: "Ce", block: "f-block" },
+      { number: 59, symbol: "Pr", block: "f-block" },
+      { number: 60, symbol: "Nd", block: "f-block" },
+      { number: 61, symbol: "Pm", block: "f-block" },
+      { number: 62, symbol: "Sm", block: "f-block" },
+      { number: 63, symbol: "Eu", block: "f-block" },
+      { number: 64, symbol: "Gd", block: "f-block" },
+      { number: 65, symbol: "Tb", block: "f-block" },
+      { number: 66, symbol: "Dy", block: "f-block" },
+      { number: 67, symbol: "Ho", block: "f-block" },
+      { number: 68, symbol: "Er", block: "f-block" },
+      { number: 69, symbol: "Tm", block: "f-block" },
+      { number: 70, symbol: "Yb", block: "f-block" },
+    ];
+    
+    const actinides = [
+      { number: 89, symbol: "Ac", block: "f-block" },
+      { number: 90, symbol: "Th", block: "f-block" },
+      { number: 91, symbol: "Pa", block: "f-block" },
+      { number: 92, symbol: "U", block: "f-block" },
+      { number: 93, symbol: "Np", block: "f-block" },
+      { number: 94, symbol: "Pu", block: "f-block" },
+      { number: 95, symbol: "Am", block: "f-block" },
+      { number: 96, symbol: "Cm", block: "f-block" },
+      { number: 97, symbol: "Bk", block: "f-block" },
+      { number: 98, symbol: "Cf", block: "f-block" },
+      { number: 99, symbol: "Es", block: "f-block" },
+      { number: 100, symbol: "Fm", block: "f-block" },
+      { number: 101, symbol: "Md", block: "f-block" },
+      { number: 102, symbol: "No", block: "f-block" },
+    ];
+    
+    function createPeriodicTable() {
+      const table = document.getElementById('periodicTable');
+      
+      for (let period = 1; period <= 7; period++) {
+        for (let group = 1; group <= 18; group++) {
+          const cell = document.createElement('div');
+          cell.style.gridRow = period;
+          cell.style.gridColumn = group;
+          
+          const element = elements.find(e => e.group === group && e.period === period);
+          
+          if (element) {
+            cell.className = `element ${element.block}`;
+            
+            const number = document.createElement('span');
+            number.className = 'number';
+            number.textContent = element.number;
+            
+            const symbol = document.createElement('span');
+            symbol.className = 'symbol';
+            symbol.textContent = element.symbol;
+            
+            cell.appendChild(number);
+            cell.appendChild(symbol);
+          }
+          
+          table.appendChild(cell);
+        }
+      }
+      
+      const lanthanidesContainer = document.getElementById('lanthanides');
+      lanthanides.forEach(element => {
+        const cell = document.createElement('div');
+        cell.className = `element ${element.block}`;
+        
+        const number = document.createElement('span');
+        number.className = 'number';
+        number.textContent = element.number;
+        
+        const symbol = document.createElement('span');
+        symbol.className = 'symbol';
+        symbol.textContent = element.symbol;
+        
+        cell.appendChild(number);
+        cell.appendChild(symbol);
+        lanthanidesContainer.appendChild(cell);
+      });
+      
+      const actinidesContainer = document.getElementById('actinides');
+      actinides.forEach(element => {
+        const cell = document.createElement('div');
+        cell.className = `element ${element.block}`;
+        
+        const number = document.createElement('span');
+        number.className = 'number';
+        number.textContent = element.number;
+        
+        const symbol = document.createElement('span');
+        symbol.className = 'symbol';
+        symbol.textContent = element.symbol;
+        
+        cell.appendChild(number);
+        cell.appendChild(symbol);
+        actinidesContainer.appendChild(cell);
+      });
+    }
+    
+    document.addEventListener('DOMContentLoaded', createPeriodicTable);
+  </script>
+</body>
+</html>

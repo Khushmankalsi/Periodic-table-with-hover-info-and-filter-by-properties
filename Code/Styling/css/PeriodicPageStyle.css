@@ -1,0 +1,39 @@
+.element {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Group Colors */
+.alkali-metal {
+  background-color: #ff9999;
+}
+.alkaline-earth {
+  background-color: #ffcc99;
+}
+.transition-metal {
+  background-color: #ccccff;
+}
+.lanthanide {
+  background-color: #66ccff;
+}
+.actinide {
+  background-color: #66ffff;
+}
+.metalloid {
+  background-color: #ccffcc;
+}
+.non-metal {
+  background-color: #99ff99;
+}
+.halogen {
+  background-color: #ffccff;
+}
+.noble-gas {
+  background-color: #ffb3e6;
+}
